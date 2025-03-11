@@ -1,0 +1,13 @@
+--Player Clean Table
+create or replace table player_clean_tbl as 
+select 
+    rcm.info:match_type_number::int as match_type_number, 
+    p.path::text as country,
+    team.value:: text as player_name,
+    stg_file_name ,
+    stg_file_row_number,
+    stg_file_hashkey,
+    stg_modified_ts
+from cricket.raw.match_raw_tbl rcm,
+lateral flatten (input => rcm.info:players) p,
+lateral flatten (input => p.value) team;

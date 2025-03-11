@@ -1,0 +1,14 @@
+--Date Dimension
+create or replace table date_dim (
+    date_id int primary key autoincrement,
+    full_dt date,
+    day int,
+    month int,
+    year int,
+    quarter int,
+    dayofweek int,
+    dayofmonth int,
+    dayofyear int,
+    dayofweekname varchar(3), -- to store day names (e.g., "Mon")
+    isweekend boolean -- to indicate if it's a weekend (True/False Sat/Sun both falls under weekend)
+);

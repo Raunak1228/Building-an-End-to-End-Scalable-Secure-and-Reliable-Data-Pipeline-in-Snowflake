@@ -1,0 +1,34 @@
+-- Snowflake Object Creation 
+CREATE OR REPLACE  WAREHOUSE dwh_cricket_project;
+  WAREHOUSE_TYPE = STANDARD 
+  WAREHOUSE_SIZE = XSMALL 
+  MAX_CLUSTER_COUNT = 2
+  MIN_CLUSTER_COUNT = 1
+  SCALING_POLICY = ECONOMY
+  AUTO_SUSPEND = 120
+  AUTO_RESUME = TRUE
+  INITIALLY_SUSPENDED = TRUE
+  COMMENT = 'Dedicated Warehouse Created Of Real Time Cricket Analysis'
+  ENABLE_QUERY_ACCELERATION = TRUE
+  QUERY_ACCELERATION_MAX_SCALE_FACTOR = 2
+  MAX_CONCURRENCY_LEVEL = 5
+  STATEMENT_QUEUED_TIMEOUT_IN_SECONDS = 40
+  STATEMENT_TIMEOUT_IN_SECONDS = 60; 
+
+use warehouse dwh_cricket_project;
+
+
+CREATE OR REPLACE DATABASE cricket;
+        IGNORE TABLES WITH INSUFFICIENT DATA RETENTION 
+        IGNORE HYBRID TABLES
+    DATA_RETENTION_TIME_IN_DAYS = 30
+    MAX_DATA_EXTENSION_TIME_IN_DAYS = 30
+    REPLACE_INVALID_CHARACTERS =  FALSE 
+    STORAGE_SERIALIZATION_POLICY = OPTIMIZED
+    COMMENT = 'Dedicated Database created for storing Real Time Cricket Data for Analysis' ; 
+   
+
+create or replace schema land;
+create or replace schema raw;
+create or replace schema clean;
+create or replace schema consumption;
