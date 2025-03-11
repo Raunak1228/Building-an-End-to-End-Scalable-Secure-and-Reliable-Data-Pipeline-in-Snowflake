@@ -1,0 +1,19 @@
+--Venue Dimension
+create or replace table venue_dim (
+    venue_id int primary key autoincrement,
+    venue_name text not null,
+    city text not null,
+    state text,
+    country text,
+    continent text,
+    end_Names text,
+    capacity number,
+    pitch text,
+    flood_light boolean,
+    established_dt date,
+    playing_area text,
+    other_sports text,
+    curator text,
+    lattitude number(10,6),
+    longitude number(10,6)
+);

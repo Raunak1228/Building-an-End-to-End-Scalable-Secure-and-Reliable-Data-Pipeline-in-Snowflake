@@ -1,0 +1,6 @@
+--Referee Dimension
+create or replace table referee_dim (
+    referee_id int primary key autoincrement,
+    referee_name text not null,
+    referee_type text not null
+);

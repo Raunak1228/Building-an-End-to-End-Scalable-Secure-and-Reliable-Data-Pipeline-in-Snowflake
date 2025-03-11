@@ -1,0 +1,45 @@
+--Match Fact Table
+CREATE or replace TABLE match_fact (
+    match_id INT PRIMARY KEY,
+    date_id INT NOT NULL,
+    referee_id INT NOT NULL,
+    team_a_id INT NOT NULL,
+    team_b_id INT NOT NULL,
+    match_type_id INT NOT NULL,
+    venue_id INT NOT NULL,
+    total_overs number(3),
+    balls_per_over number(1),
+
+    overs_played_by_team_a number(2),
+    bowls_played_by_team_a number(3),
+    extra_bowls_played_by_team_a number(3),
+    extra_runs_scored_by_team_a number(3),
+    fours_by_team_a number(3),
+    sixes_by_team_a number(3),
+    total_score_by_team_a number(3),
+    wicket_lost_by_team_a number(2),
+
+    overs_played_by_team_b number(2),
+    bowls_played_by_team_b number(3),
+    extra_bowls_played_by_team_b number(3),
+    extra_runs_scored_by_team_b number(3),
+    fours_by_team_b number(3),
+    sixes_by_team_b number(3),
+    total_score_by_team_b number(3),
+    wicket_lost_by_team_b number(2),
+
+    toss_winner_team_id int not null, 
+    toss_decision text not null, 
+    match_result text not null, 
+    winner_team_id int not null,
+
+    CONSTRAINT fk_date FOREIGN KEY (date_id) REFERENCES date_dim (date_id),
+    CONSTRAINT fk_referee FOREIGN KEY (referee_id) REFERENCES referee_dim (referee_id),
+    CONSTRAINT fk_team1 FOREIGN KEY (team_a_id) REFERENCES team_dim (team_id),
+    CONSTRAINT fk_team2 FOREIGN KEY (team_b_id) REFERENCES team_dim (team_id),
+    CONSTRAINT fk_match_type FOREIGN KEY (match_type_id) REFERENCES match_type_dim (match_type_id),
+    CONSTRAINT fk_venue FOREIGN KEY (venue_id) REFERENCES venue_dim (venue_id),
+
+    CONSTRAINT fk_toss_winner_team FOREIGN KEY (toss_winner_team_id) REFERENCES team_dim (team_id),
+    CONSTRAINT fk_winner_team FOREIGN KEY (winner_team_id) REFERENCES team_dim (team_id)
+);
