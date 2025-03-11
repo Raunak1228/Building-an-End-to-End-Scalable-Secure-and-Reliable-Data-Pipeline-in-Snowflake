@@ -9,12 +9,6 @@ Building an End-to-End Scalable, Secure, and Reliable Data Pipeline in Snowflake
 
 Welcome to the **End-to-End Data Engineering Project** repository! This project showcases a comprehensive data engineering solution built using Snowflake to analyze One Day International (ODI) cricket data. From data ingestion to insightful dashboards, this repository provides all the necessary resources to understand and implement a modern data pipeline.
 
-This project is based on the [Data Engineering Simplified](https://data-engineering-simplified.medium.com/end-to-end-data-engineering-project-using-snowflake-8f8e4f0fd1d0) article by Raunak Malapure.
-
-## :tv: Project Demo
-
-Check out the [video tutorial](https://youtu.be/qDmqE89DSQQ) to get a walk-through of the project.
-
 ## :dart: Key Objectives
 
 By exploring this project, you'll learn how to:
